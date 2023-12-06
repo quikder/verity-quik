@@ -59,6 +59,8 @@
     "apollo-upload-client": "^17.0.0",
     "commitlint": "^17.0.2",
     "del-cli": "^5.0.0",
+    "i18next": "^23.7.7",
+    "lottie-react-native": "^6.4.1",
     "react": "18.2.0",
     "react-auth-code-input": "^3.2.1",
     "react-hook-form": "^7.48.2",
