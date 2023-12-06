@@ -51,6 +51,7 @@
   "devDependencies": {
     "@commitlint/config-conventional": "^17.0.2",
     "@evilmartians/lefthook": "^1.5.0",
+    "@react-native-community/datetimepicker": "^7.6.2",
     "@react-native-community/netinfo": "^11.2.0",
     "@react-navigation/drawer": "^6.6.6",
     "@react-navigation/native": "^6.1.9",
@@ -64,6 +65,7 @@
     "expo-constants": "^14.4.2",
     "i18next": "^23.7.7",
     "lottie-react-native": "^6.4.1",
+    "moment": "^2.29.4",
     "react": "18.2.0",
     "react-auth-code-input": "^3.2.1",
     "react-hook-form": "^7.48.2",
