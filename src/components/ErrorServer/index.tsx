@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react";
 import { Button, Text } from "react-native-paper";
 import { useTheme } from "styled-components/native";
 import { Body } from "./styled";
+import type { ErrorServerType } from "./types";
 
 export const ErrorServer: React.FC<ErrorServerType> = ({ error, refetch }) => {
 	const [isConnected, setIsConnected] = useState<boolean | null>(null);
@@ -45,12 +46,3 @@ export const ErrorServer: React.FC<ErrorServerType> = ({ error, refetch }) => {
 		</Body>
 	);
 };
-
-export interface ErrorServerType {
-	error: ErrorType;
-	refetch: () => void;
-}
-
-interface ErrorType {
-	message: string;
-}
