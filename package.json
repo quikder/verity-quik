@@ -39,15 +39,15 @@
     "ios",
     "android"
   ],
-  "repository": "https://github.com/fercho343/verity-ui",
+  "repository": "https://github.com/Quikder/VerityQuik",
   "author": "Fernando Lopez <fernandojalope343@icloud.com> (https://github.com/fercho343)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/fercho343/verity-ui/issues"
+    "url": "https://github.com/Quikder/VerityQuik/issues"
   },
-  "homepage": "https://github.com/fercho343/verity-ui#readme",
+  "homepage": "https://github.com/Quikder/VerityQuik#readme",
   "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
+    "registry": "https://npm.pkg.github.com"
   },
   "devDependencies": {
     "@commitlint/config-conventional": "^17.0.2",
