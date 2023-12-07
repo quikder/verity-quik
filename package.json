@@ -2,14 +2,17 @@
   "name": "verity-quik",
   "version": "0.1.0",
   "description": "handle ui",
-  "main": "lib/commonjs/index",
-  "module": "lib/module/index",
-  "types": "lib/typescript/src/index.d.ts",
-  "react-native": "src/index",
+  "main": "lib\\commonjs\\index.js",
+  "module": "lib\\module\\index.js",
+  "types": "lib\\typescript\\src\\index.d.ts",
+  "react-native": "src\\index.tsx",
   "source": "src/index",
   "files": [
     "src",
     "lib",
+    "!**/__tests__",
+    "!**/__fixtures__",
+    "!**/__mocks__",
     "android",
     "ios",
     "cpp",
@@ -20,9 +23,6 @@
     "!android/gradlew",
     "!android/gradlew.bat",
     "!android/local.properties",
-    "!**/__tests__",
-    "!**/__fixtures__",
-    "!**/__mocks__",
     "!**/.*"
   ],
   "scripts": {
@@ -31,7 +31,8 @@
     "typecheck": "tsc --noEmit",
     "clean": "del-cli lib",
     "prepare": "bob build",
-    "release": "release-it"
+    "release": "release-it",
+    "prepack": "bob build"
   },
   "keywords": [
     "react-native",
@@ -70,7 +71,7 @@
     "react-auth-code-input": "^3.2.1",
     "react-hook-form": "^7.48.2",
     "react-native": "0.72.6",
-    "react-native-builder-bob": "^0.20.0",
+    "react-native-builder-bob": "^0.20.4",
     "react-native-confirmation-code-field": "^7.3.2",
     "react-native-dropdown-picker": "^5.4.6",
     "react-native-paper": "^5.11.3",
@@ -119,12 +120,11 @@
     "targets": [
       "commonjs",
       "module",
-      [
-        "typescript",
-        {
-          "project": "tsconfig.build.json"
-        }
-      ]
+      "typescript"
     ]
-  }
+  },
+  "eslintIgnore": [
+    "node_modules/",
+    "lib/"
+  ]
 }
