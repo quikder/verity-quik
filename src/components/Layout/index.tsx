@@ -19,6 +19,7 @@ export const Layout: React.FC<Props> = ({
 	onPressAction2,
 	customTop,
 	actionPersonalized,
+	personalizedBottom
 }) => {
 	const { goBack, navigate } = useNavigation<any>();
 	const { bottom } = useSafeAreaInsets();
@@ -28,7 +29,7 @@ export const Layout: React.FC<Props> = ({
 
 	return (
 		<Body
-			$bottom={bottom}
+			$bottom={personalizedBottom ? personalizedBottom : bottom}
 			$top={customTop ? customTop : Constants.statusBarHeight + 5}
 		>
 			<Appbar.Header statusBarHeight={0} safeAreaInsets={{ left: 0, right: 0 }}>
@@ -63,4 +64,5 @@ interface Props {
 	onPressAction2?: () => void;
 	customTop?: number;
 	actionPersonalized?: React.ReactNode;
+	personalizedBottom?: number
 }
