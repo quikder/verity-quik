@@ -7,7 +7,7 @@ import React from 'react';
 
 export const ThemeContext = createContext(null);
 
-export const ThemeProvider: React.FC = (props) => {
+export const ThemeProvider: React.FC<Props> = (props) => {
 	return (
 		<StyledProvider theme={styledLigthTheme}>
 			<PaperProvider theme={paperLightTheme}>
@@ -18,4 +18,8 @@ export const ThemeProvider: React.FC = (props) => {
 			</PaperProvider>
 		</StyledProvider>
 	);
+}
+
+interface Props{
+	children: React.ReactNode
 }
