@@ -3,7 +3,6 @@ import { Controller } from "react-hook-form";
 import { Checkbox as DefaultCheckbox } from "react-native-paper";
 
 export const Checkbox: React.FC<Props> = ({ control, name, label }) => {
-	//TODO in progress
 	return (
 		<>
 			<Controller

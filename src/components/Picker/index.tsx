@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Controller } from "react-hook-form";
 import DropDownPicker from "react-native-dropdown-picker";
 import { HelperText, useTheme } from "react-native-paper";
+import { useUpdateEffect } from "../../hooks/useUpdateEffect";
 
 export const Picker: React.FC<Props> = ({
 	items,
@@ -9,11 +10,21 @@ export const Picker: React.FC<Props> = ({
 	name,
 	control,
 	rules,
+	isSend,
+	valueDefault = null,
 	schema = { label: "label", value: "value" },
 }) => {
 	const [open, setOpen] = useState<boolean>(false);
-	const [defaultValue, setDefaultValue] = useState<string | null>(null);
+	const [defaultValue, setDefaultValue] = useState<string | null>(valueDefault);
 	const theme = useTheme();
+
+	useUpdateEffect(() => {
+		if (isSend) {
+			setDefaultValue(null);
+		}
+	}, [isSend]);
+
+	const totalOptions = items.length;
 
 	return (
 		<>
@@ -22,7 +33,7 @@ export const Picker: React.FC<Props> = ({
 				control={control}
 				rules={rules}
 				render={({
-					field: { onChange },
+					field: { value, onChange },
 					fieldState: { error: errorForm },
 				}) => {
 					return (
@@ -59,7 +70,7 @@ export const Picker: React.FC<Props> = ({
 								dropDownContainerStyle={{
 									borderColor: theme.colors.onSurfaceVariant,
 									borderWidth: 0.3,
-									height: 160,
+									height: totalOptions < 6 ? totalOptions * 40 : 160,
 								}}
 								listItemLabelStyle={{ textTransform: "capitalize" }}
 							/>
@@ -87,7 +98,8 @@ interface Props {
 	control: any;
 	rules?: object;
 	schema?: ItemType;
-	watch: any;
+	valueDefault?: string | null;
+	isSend?: boolean;
 }
 
 interface ItemType {

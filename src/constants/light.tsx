@@ -60,6 +60,7 @@ export const colors = {
 
 const styledLigthTheme: DefaultTheme = {
 	borderRadius: "5px",
+	mode: "light",
 	colors,
 };
 

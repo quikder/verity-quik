@@ -3,6 +3,7 @@ import { Controller } from "react-hook-form";
 import DropDownPicker from "react-native-dropdown-picker";
 import { HelperText } from "react-native-paper";
 import { useTheme } from "styled-components/native";
+import { useUpdateEffect } from "../../hooks/useUpdateEffect";
 
 export const MultiPicker: React.FC<Props> = ({
 	items,
@@ -10,11 +11,19 @@ export const MultiPicker: React.FC<Props> = ({
 	placeholder,
 	control,
 	rules,
+	watch,
+	isSend,
 	schema = { label: "label", value: "value" },
 }) => {
 	const [open, setOpen] = useState(false);
-	const [defaultValue, setDefaultValue] = useState([]);
+	const [defaultValue, setDefaultValue] = useState(watch(name));
 	const theme = useTheme();
+
+	useUpdateEffect(() => {
+		if (isSend) {
+			setDefaultValue([]);
+		}
+	}, [isSend]);
 
 	return (
 		<>
@@ -22,10 +31,7 @@ export const MultiPicker: React.FC<Props> = ({
 				name={name}
 				control={control}
 				rules={rules}
-				render={({
-					field: { onChange },
-					fieldState: { error: errorForm },
-				}) => {
+				render={({ field: { onChange }, fieldState: { error: errorForm } }) => {
 					return (
 						<>
 							<DropDownPicker
@@ -94,6 +100,8 @@ interface Props {
 	control: any;
 	rules?: object;
 	schema?: ItemType;
+	watch: any;
+	isSend?: boolean;
 }
 
 interface ItemType {
