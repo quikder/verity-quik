@@ -1,5 +1,6 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import {
+	//@ts-ignore
 	ThemePreference,
 	setThemePreference,
 } from "@vonovak/react-native-theme-control";
