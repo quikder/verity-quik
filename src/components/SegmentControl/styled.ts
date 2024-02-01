@@ -51,8 +51,8 @@ interface LabelProps {
 
 export const LabelText = styled(Text)<LabelProps>`
   font-size: 16px;
-  color: ${({ $isActive, theme }) =>
-		$isActive ? "#ffffff" : theme.colors.primary};
+  color: ${({ $isActive }) =>
+		$isActive ? "#ffffff" : '#FFCD31'};
   text-align: center;
   text-transform: capitalize;
 `;

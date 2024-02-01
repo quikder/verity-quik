@@ -33,7 +33,7 @@ export const Picker: React.FC<Props> = ({
 				control={control}
 				rules={rules}
 				render={({
-					field: { value, onChange },
+					field: { onChange },
 					fieldState: { error: errorForm },
 				}) => {
 					return (
